@@ -1,5 +1,13 @@
-import nltk
+import glob
+import os
 import ssl
+
+import nltk
+
+for f in glob.glob("*.db*"):
+    os.remove(f)
+    print("Deleted existing db files")
+
 try:
     _create_unverified_https_context = ssl._create_unverified_context
 except AttributeError:
